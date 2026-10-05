@@ -162,6 +162,17 @@ document.querySelectorAll('.copy-wx').forEach(btn => {
   });
 });
 
+/* 占位符未替换时不裸露英文，保证线上页面体面 */
+(() => {
+  const unset = v => !v || v.startsWith('REPLACE_');
+  document.querySelectorAll('.wx-id').forEach(el => {
+    if (unset(el.textContent.trim())) el.textContent = '待填写';
+  });
+  document.querySelectorAll('.link-btn.copy-wx').forEach(b => {
+    if (unset(b.dataset.wx)) b.style.display = 'none';
+  });
+})();
+
 /* 滚动入场 */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
