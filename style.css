@@ -103,6 +103,22 @@ a { color: inherit; text-decoration: none; }
 .lang { border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff; cursor: pointer;
         padding: 8px 14px; border-radius: 0; font: 600 11px var(--mono); letter-spacing: .16em; transition: .18s; }
 .lang:hover { background: #fff; color: var(--ink); }
+/* 背景音乐开关：与 .lang 同族的硬边方块控件，内嵌 lucide 图标 */
+.icon-btn { display: inline-flex; align-items: center; justify-content: center;
+            width: 38px; padding: 6px; flex-shrink: 0;
+            border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff;
+            cursor: pointer; border-radius: 0; transition: .18s; }
+.icon-btn:hover { background: #fff; color: var(--ink); }
+.icon-btn:focus-visible { outline: 1px solid var(--seal); outline-offset: 2px; }
+.icon-btn svg { width: 17px; height: 17px; display: block; }
+.bgm-btn .i-off { display: none; }
+.bgm-btn[aria-pressed="false"] .i-on { display: none; }
+.bgm-btn[aria-pressed="false"] .i-off { display: block; }
+@keyframes bgm-live { 0%, 100% { opacity: 1; } 50% { opacity: .42; } }
+.bgm-btn[aria-pressed="true"] .i-on { animation: bgm-live 2.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .bgm-btn[aria-pressed="true"] .i-on { animation: none; }
+}
 
 /* ============ HERO：沉浸式背景视频 ============ */
 .hero { position: relative; overflow: hidden; isolation: isolate; background: var(--ink);
@@ -366,6 +382,8 @@ blockquote { margin-top: 38px; padding: 28px 0 0; border-top: 1px solid var(--li
   .foot-copy { margin-left: 0; width: 100%; }
 }
 @media (max-width: 560px) {
+  .brand-name { display: none; }
+  .icon-btn { width: 34px; padding: 5px; }
   .trio { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }
   .stat { border-right: 0; border-bottom: 1px solid var(--line-soft); padding-right: 0; }

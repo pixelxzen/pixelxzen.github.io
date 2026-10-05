@@ -26,6 +26,11 @@
       <a href="#help" data-i18n="nav.help">可托</a>
       <a href="#talk" data-i18n="nav.talk">相逢</a>
     </nav>
+    <button class="icon-btn bgm-btn" id="bgm-btn" type="button" aria-pressed="true"
+            aria-label="关闭背景音乐" title="关闭背景音乐">
+      <svg class="i-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg>
+      <svg class="i-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4.702a.7.7 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.7.7 0 0 0 11 19.298z"/><path d="m16.5 14.5 5-5"/><path d="m16.5 9.5 5 5"/></svg>
+    </button>
     <button class="lang" id="lang" aria-label="切换语言">EN</button>
     <button class="btn btn-sm copy-wx" data-wx="pixelxzen" data-i18n="nav.wx">加微信</button>
   </div>
@@ -315,6 +320,9 @@
 </footer>
 
 <div class="toast" id="toast"></div>
+
+<!-- 背景音乐：单曲循环，由 main.js 接管播放与开关 -->
+<audio id="bgm" src="assets/bgm.mp3" loop preload="auto" aria-hidden="true"></audio>
 <script src="main.js"></script>
 </body>
 </html>

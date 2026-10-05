@@ -74,6 +74,9 @@ python3 -m http.server 8912
 - **中英双语**：字典在 `main.js` 的 `EN` 对象；`data-i18n` 走文本、`data-i18n-html` 走富文本（首屏主文案靠它控制断行）。
 - **动效**：滚动入场用 IntersectionObserver；`.js` 类保证 JS 失效时不白屏，
   `prefers-reduced-motion` 下自动关闭动效并停播背景视频。
+- **背景音乐**：`assets/bgm.mp3` 单曲循环、默认开启，导航栏音符按钮开关
+  （图标取自 lucide 的 `music-2` / `volume-x`，内联 SVG，零依赖；与「EN」按钮共用同一盒模型，同为 31px 高）。
+  按钮是纯 CSS 状态机：`aria-pressed` 驱动图标切换，播放时轻微呼吸，`prefers-reduced-motion` 下停用。
 
 ## 维护备忘
 
@@ -87,5 +90,15 @@ python3 -m http.server 8912
     -pix_fmt yuv420p -profile:v high -movflags +faststart assets/hero-loop.mp4
   ffmpeg -ss 1.5 -i assets/hero-loop.mp4 -frames:v 1 -q:v 6 assets/hero-poster.jpg
   ```
+- 换背景音乐：替换 `assets/bgm.mp3` 后**务必重做无缝循环**，否则接缝会「咔」一下。
+  原理是把尾部等功率淡化叠回开头：
+
+  ```python
+  # ① 切掉开头静音（原素材有 572ms 静音）② 尾→头 250ms 等功率交叉淡化
+  out = np.concatenate([y[:F]*np.sqrt(t) + y[L-F:L]*np.sqrt(1-t), y[F:L-F]])
+  ```
+
+  代价是成品比原曲短 F 秒（6.35s）。验收标准：循环点的逐样本跳变不得大于曲内最大跳变。
+- 音乐开关状态存在 `localStorage('zs-bgm')`；想让所有访客恢复「默认开启」，清掉这个键即可。
 - 区块配色在 `style.css` 的 `.on-violet` / `.on-white` / `.on-ink` 三个主题类里改，
   HTML 里对应 `<section class="sec on-*">`

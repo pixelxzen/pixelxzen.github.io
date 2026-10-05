@@ -137,6 +137,7 @@ const applyLang = (lang) => {
   });
   document.getElementById('lang').textContent = lang === 'en' ? '中文' : 'EN';
   try { localStorage.setItem('zs-lang', lang); } catch (e) {}
+  document.dispatchEvent(new CustomEvent('zs:langchange'));
 };
 
 let lang = 'zh';
@@ -210,3 +211,59 @@ document.querySelectorAll('.sec, .stats, .work, .shelf, .svc, .ct').forEach((el,
   el.style.transitionDelay = Math.min(i % 4, 3) * 70 + 'ms';
   io.observe(el);
 });
+
+/* 背景音乐：默认开启 · 单曲循环 · lucide 图标开关 */
+(() => {
+  const a = document.getElementById('bgm');
+  const btn = document.getElementById('bgm-btn');
+  if (!a || !btn) return;
+
+  const KEY = 'zs-bgm';
+  const EV = ['pointerdown', 'keydown', 'touchstart', 'wheel', 'scroll'];
+  let on = true;
+  try { if (localStorage.getItem(KEY) === 'off') on = false; } catch (e) {}
+
+  a.loop = true;
+  a.volume = 0.4;
+
+  const label = () => document.body.classList.contains('is-en')
+    ? { on: 'Turn off background music', off: 'Turn on background music' }
+    : { on: '关闭背景音乐', off: '开启背景音乐' };
+
+  const paint = () => {
+    const t = on ? label().on : label().off;
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.setAttribute('aria-label', t);
+    btn.title = t;
+  };
+
+  const start = () => {
+    const p = a.play();
+    return (p && p.then) ? p.then(() => true).catch(() => false) : Promise.resolve(true);
+  };
+  const disarm = () => EV.forEach(ev => window.removeEventListener(ev, nudge));
+  const nudge = () => {
+    if (!on) { disarm(); return; }
+    start().then(ok => { if (ok) disarm(); });
+  };
+  const arm = () => EV.forEach(ev => window.addEventListener(ev, nudge, { passive: true }));
+
+  paint();
+  document.addEventListener('zs:langchange', paint);
+
+  // 浏览器自动播放策略：无用户交互时会被拒 → 首次交互时补播
+  if (on) start().then(ok => { if (!ok) arm(); });
+
+  btn.addEventListener('click', () => {
+    on = !on;
+    if (on) start(); else a.pause();
+    paint();
+    try { localStorage.setItem(KEY, on ? 'on' : 'off'); } catch (e) {}
+  });
+
+  // 切到后台暂停，回来续播（省电、不打扰）
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) a.pause();
+    else if (on) start().then(ok => { if (!ok) arm(); });
+  });
+})();
