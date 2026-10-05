@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">紫苏子ACG · 一格一阶，把想象铺成路</title>
+<meta name="description" content="独立动画导演 × 独立全栈开发。二十年设计与影像，如今一个人便是一支队伍。开源作品 GitHub 185+ Star。">
+<meta property="og:title" content="紫苏子ACG · 一格一阶">
+<meta property="og:description" content="把想象铺成路。Frame by frame, step by step.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/avatar.png">
+<link rel="icon" href="assets/avatar.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <span class="seal">紫<br>苏</span>
+      <span class="brand-name" data-i18n="brand">紫苏子ACG</span>
+    </a>
+    <nav class="links">
+      <a href="#road" data-i18n="nav.road">来路</a>
+      <a href="#built" data-i18n="nav.built">所铸</a>
+      <a href="#help" data-i18n="nav.help">可托</a>
+      <a href="#talk" data-i18n="nav.talk">相逢</a>
+    </nav>
+    <button class="lang" id="lang" aria-label="切换语言">EN</button>
+    <button class="btn btn-sm copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="nav.wx">加微信</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="hero.eyebrow">独立动画导演 · 独立全栈开发</p>
+        <h1 data-i18n-html="hero.h1">一格一阶，<br>把想象<em>铺成路</em></h1>
+        <p class="lead" data-i18n-html="hero.lead">二十年设计与影像，从纸笔到代码。<br class="d-br">如今我定方向、出画面、写引擎，让一群 AI 替我执笔——<br class="d-br">一个人，便是一支队伍。</p>
+        <div class="trio">
+          <div class="t"><b data-i18n="hero.t1">导</b><span data-i18n="hero.t1s">讲好一个故事</span></div>
+          <div class="t"><b data-i18n="hero.t2">造</b><span data-i18n="hero.t2s">把想法造成工具</span></div>
+          <div class="t"><b data-i18n="hero.t3">教</b><span data-i18n="hero.t3s">让 AI 替你干活</span></div>
+        </div>
+        <div class="hero-cta">
+          <button class="btn btn-primary copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="hero.cta1">加微信，聊一聊</button>
+          <a class="btn btn-ghost" href="#built" data-i18n="hero.cta2">看开源作品</a>
+        </div>
+      </div>
+      <aside class="card profile">
+        <img class="avatar" src="assets/avatar.png" alt="紫苏子ACG">
+        <div class="p-name" data-i18n="p.name">紫苏子ACG</div>
+        <div class="p-role" data-i18n="p.role">独立动画导演 · 独立全栈开发</div>
+        <ul class="p-list">
+          <li><b>185+</b><span data-i18n="p.l1">GitHub Star · 代表作 Phantom-Motion</span></li>
+          <li><b>27</b><span data-i18n="p.l2">个开源仓库</span></li>
+          <li><b>@</b><span data-i18n="p.l3">公众号 / GitHub：紫苏子ACG · pixelxzen</span></li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice" role="img">
+        <defs>
+          <linearGradient id="stair" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8B6BFF" stop-opacity=".25"/>
+            <stop offset="55%" stop-color="#8B6BFF" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#3AD9E8" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="glowline" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8B6BFF" stop-opacity="0"/>
+            <stop offset="50%" stop-color="#3AD9E8" stop-opacity=".9"/>
+            <stop offset="100%" stop-color="#3AD9E8" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="halo" cx="78%" cy="30%" r="55%">
+            <stop offset="0%" stop-color="#8B6BFF" stop-opacity=".38"/>
+            <stop offset="60%" stop-color="#3AD9E8" stop-opacity=".07"/>
+            <stop offset="100%" stop-color="#120E24" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="soft"><feGaussianBlur stdDeviation="3.5"/></filter>
+        </defs>
+
+        <rect width="1600" height="420" fill="url(#halo)"/>
+
+        <g class="stars">
+          <circle cx="180" cy="72" r="1.6"/><circle cx="330" cy="140" r="1.1"/>
+          <circle cx="520" cy="58" r="1.4"/><circle cx="700" cy="112" r="1"/>
+          <circle cx="880" cy="46" r="1.7"/><circle cx="1030" cy="128" r="1.2"/>
+          <circle cx="1210" cy="66" r="1.4"/><circle cx="1390" cy="118" r="1.1"/>
+          <circle cx="1520" cy="60" r="1.5"/><circle cx="260" cy="200" r="1"/>
+          <circle cx="1180" cy="196" r="1.3"/><circle cx="1460" cy="210" r="1"/>
+        </g>
+
+        <path class="trail" d="M -40 340 C 300 320 420 190 760 168 C 1080 148 1240 96 1560 48"
+              fill="none" stroke="url(#glowline)" stroke-width="1.6" stroke-dasharray="7 9"/>
+        <circle class="trail-end" cx="1560" cy="48" r="3.4"/>
+
+        <g class="stairs-line" filter="url(#soft)" opacity=".55">
+          <polyline points="0,392 250,392 250,318 470,318 470,250 668,250 668,186 852,186 852,128 1030,128 1030,78 1220,78 1220,36 1600,36"
+                    fill="none" stroke="url(#stair)" stroke-width="7"/>
+        </g>
+        <polyline points="0,392 250,392 250,318 470,318 470,250 668,250 668,186 852,186 852,128 1030,128 1030,78 1220,78 1220,36 1600,36"
+                  fill="none" stroke="url(#stair)" stroke-width="2.2"/>
+
+        <g class="beads">
+          <circle cx="250" cy="318" r="4"/><circle cx="470" cy="250" r="4.4"/>
+          <circle cx="668" cy="186" r="4.8"/><circle cx="852" cy="128" r="5.2"/>
+          <circle cx="1030" cy="78" r="5.6"/><circle cx="1220" cy="36" r="6"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="stats wrap">
+    <div class="stat"><b>20<i data-i18n="s.u1">载</i></b><span data-i18n="s.l1">设计与影像</span></div>
+    <div class="stat"><b>27<i data-i18n="s.u2">个</i></b><span data-i18n="s.l2">开源仓库</span></div>
+    <div class="stat"><b>185+</b><span data-i18n="s.l3">GitHub Star</span></div>
+    <div class="stat"><b>1<i data-i18n="s.u4">人</i></b><span data-i18n="s.l4">一支队伍</span></div>
+  </section>
+
+  <!-- 第一阶 · 来路 -->
+  <section id="road" class="sec wrap">
+    <div class="step-mark" data-step="1">
+      <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span data-i18n="road.mark">第一阶 · 来路</span><small>THE ROAD SO FAR</small>
+    </div>
+    <div class="about">
+      <div class="about-text">
+        <h2 data-i18n="road.h2">自己先走一遍，才知道路在哪</h2>
+        <p data-i18n="road.p1">二十年设计与影像，从平面到动态，从分镜到引擎。</p>
+        <p data-i18n="road.p2">后来换了打法：我定方向、立标准、做验收，让一群 AI 替我执笔。</p>
+        <p data-i18n="road.p3">每一帧、每一次提交，都在试同一件事——一个人，究竟能走多远。</p>
+        <blockquote data-i18n="road.quote">一格一阶，把想象铺成路。</blockquote>
+      </div>
+      <div class="card day">
+        <div class="day-title" data-i18n="day.title">一日之功</div>
+        <div class="day-sub" data-i18n="day.sub">一个人 · 一支短片的全流程</div>
+        <ol class="timeline">
+          <li><time>09:20</time><span data-i18n="day.a">分镜落笔</span></li>
+          <li><time>13:40</time><span data-i18n="day.b">画面生成</span></li>
+          <li><time>16:15</time><span data-i18n="day.c">动效铺轨</span></li>
+          <li><time>23:05</time><span data-i18n="day.d">提交成片</span></li>
+        </ol>
+        <p class="day-note" data-i18n="day.note">编剧、分镜、生成、配音、剪辑、发布——一个人做完。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第二阶 · 所铸 -->
+  <section id="built" class="sec sec-tint">
+    <div class="wrap">
+      <div class="step-mark" data-step="2">
+        <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span data-i18n="built.mark">第二阶 · 所铸</span><small>WHAT I'VE BUILT</small>
+      </div>
+      <h2 data-i18n="built.h2">所铸之器</h2>
+
+      <article class="card work work-main">
+        <div class="work-media media-code">
+          <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>phantom-motion</span></div>
+          <pre aria-hidden="true"><span class="c1">scene</span> <span class="c2">"phantom"</span> {
+  <span class="c3">frames</span> : <span class="c2">"auto"</span>,
+  <span class="c3">motion</span> : <span class="c2">"emergent"</span>,
+  <span class="c3">story</span>  : <span class="c4">your_imagination</span>
+}
+
+<span class="c5">▸</span> rendering <span class="c4">12</span> frames …
+<span class="c6">✓</span> done in <span class="c4">2.4s</span></pre>
+        </div>
+        <div class="work-body">
+          <span class="tag" data-i18n="ph.tag">代表作</span>
+          <h3><span data-i18n="ph.name">Phantom-Motion</span></h3>
+          <p class="tagline" data-i18n="ph.tagline">让画面自己动起来。</p>
+          <p data-i18n="ph.desc">一个交互式动态视觉叙事生成器。你给一个念头，它回你一帧帧会呼吸的画面——能力只受想象力限制。</p>
+          <div class="star-big"><b>185+</b><span data-i18n="ph.stars">GitHub Star</span></div>
+          <ul class="repos">
+            <li><span data-i18n="ph.k1">语言</span><b>HTML</b></li>
+            <li><span data-i18n="ph.k2">形态</span><b data-i18n="ph.v2">交互生成器</b></li>
+            <li><span data-i18n="ph.k3">许可</span><b data-i18n="ph.v3">开源</b></li>
+          </ul>
+          <div class="work-links">
+            <a class="btn btn-primary" href="https://github.com/pixelxzen/phantom-motion" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card work work-second">
+        <div class="work-body">
+          <span class="tag tag-soft" data-i18n="mp.tag">第二件作品</span>
+          <h3><span data-i18n="mp.name">AI 杂志摄影师</span></h3>
+          <p class="tagline small" data-i18n="mp.tagline">教你让 AI 像杂志摄影师一样拍写真。</p>
+          <p data-i18n="mp.desc">把二十年的摄影眼光，写成一套 AI 能听懂的提示词与工作流。</p>
+          <div class="work-links">
+            <a class="btn btn-ghost" href="https://github.com/pixelxzen/ai-magazine-photographer" target="_blank" rel="noopener">GitHub ★18</a>
+          </div>
+        </div>
+        <div class="work-media wide media-grid">
+          <div class="g-item"><b data-i18n="gh.k1">构图</b><span>composition</span></div>
+          <div class="g-item"><b data-i18n="gh.k2">用光</b><span>lighting</span></div>
+          <div class="g-item"><b data-i18n="gh.k3">调色</b><span>grading</span></div>
+          <div class="g-item"><b data-i18n="gh.k4">叙事</b><span>narrative</span></div>
+        </div>
+      </article>
+
+      <h3 class="sub-head" data-i18n="more.h">壁上陈列 · 其他开源</h3>
+      <ul class="shelf">
+        <li><a href="https://github.com/pixelxzen/open-design" target="_blank" rel="noopener">
+          <span class="s-name">open-design</span><span class="s-desc" data-i18n="shelf.1">本地优先的设计生成器 · 19 Skills · 71 套设计系统</span><span class="s-star">★1</span></a></li>
+        <li><a href="https://github.com/pixelxzen/Online-AI-Examination-System-v2" target="_blank" rel="noopener">
+          <span class="s-name">Online-AI-Examination-System</span><span class="s-desc" data-i18n="shelf.2">人工智能训练师互动试卷</span><span class="s-star">★7</span></a></li>
+        <li><a href="https://github.com/pixelxzen/Keycap-Studio" target="_blank" rel="noopener">
+          <span class="s-name">Keycap-Studio</span><span class="s-desc" data-i18n="shelf.3">等距参数化键帽立体字符设计工具</span><span class="s-star">★4</span></a></li>
+        <li><a href="https://github.com/pixelxzen/chatlog2026" target="_blank" rel="noopener">
+          <span class="s-name">chatlog2026</span><span class="s-desc" data-i18n="shelf.4">聊天记录工作台</span><span class="s-star">★3</span></a></li>
+        <li><a href="https://github.com/pixelxzen/echocut" target="_blank" rel="noopener">
+          <span class="s-name">echocut</span><span class="s-desc" data-i18n="shelf.5">一条命令，把素材剪成成片</span><span class="s-star zero">★0</span></a></li>
+        <li><a href="https://github.com/pixelxzen/smart-illustrator" target="_blank" rel="noopener">
+          <span class="s-name">smart-illustrator</span><span class="s-desc" data-i18n="shelf.6">给文章自动配上插画</span><span class="s-star zero">★0</span></a></li>
+      </ul>
+      <p class="fine" data-i18n="more.asof">Star 数截至 2026-10-05。共 27 个公开仓库，见 GitHub。</p>
+    </div>
+  </section>
+
+  <!-- 第三阶 · 可托 -->
+  <section id="help" class="sec sec-bright">
+    <div class="wrap">
+      <div class="step-mark" data-step="3">
+        <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span data-i18n="help.mark">第三阶 · 可托</span><small>HOW I CAN HELP</small>
+      </div>
+      <h2 data-i18n="help.h2">可托之事</h2>
+      <div class="services">
+        <article class="svc svc-main">
+          <span class="tag" data-i18n="cv.tag">主理</span>
+          <h3 data-i18n="cv.title">AI 落地咨询</h3>
+          <p class="svc-who" data-i18n="cv.lead">想把 AI 用进业务，却不知从哪下手；或已经踩了坑，想少绕些路。</p>
+          <ul class="svc-list">
+            <li><b data-i18n="cv.k1">选器</b><span data-i18n="cv.v1">模型与工具怎么搭，才配得上你的活</span></li>
+            <li><b data-i18n="cv.k2">布阵</b><span data-i18n="cv.v2">把你手上一件重复的活，拆给 AI 去做</span></li>
+            <li><b data-i18n="cv.k3">避坑</b><span data-i18n="cv.v3">我踩过的，你不必再踩</span></li>
+          </ul>
+          <div class="svc-meta"><span data-i18n="cv.form">线上一对一 · 企业内训亦可</span><span class="price" data-i18n="cv.price">私信询价</span></div>
+          <button class="btn btn-primary copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="cv.cta">加微信，约一次</button>
+        </article>
+        <article class="svc">
+          <h3 data-i18n="co.title">影像与开发</h3>
+          <p class="svc-who" data-i18n="co.lead">品牌要一支片子，或团队要一个能跑的工具。</p>
+          <ul class="svc-list">
+            <li><b data-i18n="co.k1">导演</b><span data-i18n="co.v1">从创意到成片的动画与短片</span></li>
+            <li><b data-i18n="co.k2">定制</b><span data-i18n="co.v2">照你的流程打造工具与站点</span></li>
+            <li><b data-i18n="co.k3">共建</b><span data-i18n="co.v3">一起做开源，一起推</span></li>
+          </ul>
+          <div class="svc-meta"><span class="price" data-i18n="co.price">按项目报价</span></div>
+          <button class="btn btn-ghost copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="co.cta">私信谈合作</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第四阶 · 相逢 -->
+  <section id="talk" class="sec wrap">
+    <div class="step-mark" data-step="4">
+      <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span data-i18n="talk.mark">第四阶 · 相逢</span><small>LET'S TALK</small>
+    </div>
+    <h2 data-i18n="talk.h2">台阶已铺好，上来聊聊</h2>
+    <div class="contact">
+      <div class="card ct">
+        <div class="ct-title" data-i18n="ct.wx">微信</div>
+        <div class="qr qr-empty" data-i18n="ct.qrph">二维码待替换</div>
+        <div class="ct-id"><span class="wx-id">REPLACE_WECHAT_ID</span> <button class="link-btn copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="ct.copy">复制</button></div>
+        <p class="fine" data-i18n="ct.note">添加请注明来意</p>
+      </div>
+      <div class="card ct">
+        <div class="ct-title" data-i18n="ct.mp">公众号</div>
+        <div class="qr qr-empty" data-i18n="ct.qrph">二维码待替换</div>
+        <div class="ct-id">紫苏子ACG</div>
+        <p class="fine" data-i18n="ct.mpnote">动画手记 · AI 实操 · 能装的开源</p>
+      </div>
+      <div class="card ct ct-links">
+        <div class="ct-title" data-i18n="ct.else">别处</div>
+        <a href="https://github.com/pixelxzen" target="_blank" rel="noopener"><span>GitHub</span>pixelxzen</a>
+        <a href="https://github.com/pixelxzen/phantom-motion" target="_blank" rel="noopener"><span data-i18n="ct.ph">代表作</span>phantom-motion</a>
+        <a href="https://github.com/pixelxzen?tab=repositories" target="_blank" rel="noopener"><span data-i18n="ct.repos">全部作品</span>27 repos</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="seal small">紫<br>苏</span>
+    <span class="foot-slogan">一格一阶，把想象铺成路<em>Frame by frame, step by step.</em></span>
+    <span class="foot-copy">© 2026 紫苏子ACG</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="main.js"></script>
+</body>
+</html>
