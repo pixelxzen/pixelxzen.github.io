@@ -114,7 +114,8 @@ a { color: inherit; text-decoration: none; }
                                rgba(11,9,18,0) 58%),
                linear-gradient(180deg, rgba(11,9,18,.52) 0%, rgba(11,9,18,.04) 20%,
                                rgba(11,9,18,.06) 62%, rgba(50,28,158,.72) 90%, var(--violet) 100%); }
-.hero-in { position: relative; z-index: 2; display: block; max-width: 640px; padding: 152px 0 64px; }
+.hero-in { position: relative; z-index: 2; display: block; padding: 152px 0 64px; }
+.hero-text { max-width: 640px; }
 .hero-text .eyebrow { display: block; margin-bottom: 30px; color: #fff;
                       font-family: var(--mono); font-size: var(--t-mono); font-weight: 600;
                       letter-spacing: .26em; text-transform: uppercase; opacity: .78; }
