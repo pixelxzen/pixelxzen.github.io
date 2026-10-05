@@ -17,7 +17,7 @@
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top">
-      <span class="seal">紫<br>苏</span>
+      <img class="brand-mark" src="assets/avatar.png" alt="" width="38" height="38">
       <span class="brand-name" data-i18n="brand">紫苏子ACG</span>
     </a>
     <nav class="links">
@@ -27,13 +27,18 @@
       <a href="#talk" data-i18n="nav.talk">相逢</a>
     </nav>
     <button class="lang" id="lang" aria-label="切换语言">EN</button>
-    <button class="btn btn-sm copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="nav.wx">加微信</button>
+    <button class="btn btn-sm copy-wx" data-wx="pixelxzen" data-i18n="nav.wx">加微信</button>
   </div>
 </header>
 
 <main id="top">
 
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
+    <div class="hero-veil" aria-hidden="true"></div>
     <div class="wrap hero-in">
       <div class="hero-text">
         <p class="eyebrow" data-i18n="hero.eyebrow">独立动画导演 · 独立全栈开发</p>
@@ -45,20 +50,10 @@
           <div class="t"><b data-i18n="hero.t3">教</b><span data-i18n="hero.t3s">让 AI 替你干活</span></div>
         </div>
         <div class="hero-cta">
-          <button class="btn btn-primary copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="hero.cta1">加微信，聊一聊</button>
+          <button class="btn btn-primary copy-wx" data-wx="pixelxzen" data-i18n="hero.cta1">加微信，聊一聊</button>
           <a class="btn btn-ghost" href="#built" data-i18n="hero.cta2">看开源作品</a>
         </div>
       </div>
-      <aside class="card profile">
-        <img class="avatar" src="assets/avatar.png" alt="紫苏子ACG">
-        <div class="p-name" data-i18n="p.name">紫苏子ACG</div>
-        <div class="p-role" data-i18n="p.role">独立动画导演 · 独立全栈开发</div>
-        <ul class="p-list">
-          <li><b>185+</b><span data-i18n="p.l1">GitHub Star · 代表作 Phantom-Motion</span></li>
-          <li><b>27</b><span data-i18n="p.l2">个开源仓库</span></li>
-          <li><b>@</b><span data-i18n="p.l3">公众号 / GitHub：紫苏子ACG · pixelxzen</span></li>
-        </ul>
-      </aside>
     </div>
 
     <div class="hero-art" aria-hidden="true">
@@ -113,15 +108,20 @@
     </div>
   </section>
 
-  <section class="stats wrap">
+  <section class="sec on-violet" id="facts">
+   <div class="wrap">
+    <div class="stats">
     <div class="stat"><b>20<i data-i18n="s.u1">载</i></b><span data-i18n="s.l1">设计与影像</span></div>
     <div class="stat"><b>27<i data-i18n="s.u2">个</i></b><span data-i18n="s.l2">开源仓库</span></div>
     <div class="stat"><b>185+</b><span data-i18n="s.l3">GitHub Star</span></div>
     <div class="stat"><b>1<i data-i18n="s.u4">人</i></b><span data-i18n="s.l4">一支队伍</span></div>
+    </div>
+   </div>
   </section>
 
   <!-- 第一阶 · 来路 -->
-  <section id="road" class="sec wrap">
+  <section id="road" class="sec on-violet">
+   <div class="wrap">
     <div class="step-mark" data-step="1">
       <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span data-i18n="road.mark">第一阶 · 来路</span><small>THE ROAD SO FAR</small>
@@ -146,10 +146,11 @@
         <p class="day-note" data-i18n="day.note">编剧、分镜、生成、配音、剪辑、发布——一个人做完。</p>
       </div>
     </div>
+   </div>
   </section>
 
   <!-- 第二阶 · 所铸 -->
-  <section id="built" class="sec sec-tint">
+  <section id="built" class="sec on-white">
     <div class="wrap">
       <div class="step-mark" data-step="2">
         <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -224,7 +225,7 @@
   </section>
 
   <!-- 第三阶 · 可托 -->
-  <section id="help" class="sec sec-bright">
+  <section id="help" class="sec on-ink">
     <div class="wrap">
       <div class="step-mark" data-step="3">
         <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -242,7 +243,7 @@
             <li><b data-i18n="cv.k3">避坑</b><span data-i18n="cv.v3">我踩过的，你不必再踩</span></li>
           </ul>
           <div class="svc-meta"><span data-i18n="cv.form">线上一对一 · 企业内训亦可</span><span class="price" data-i18n="cv.price">私信询价</span></div>
-          <button class="btn btn-primary copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="cv.cta">加微信，约一次</button>
+          <button class="btn btn-primary copy-wx" data-wx="pixelxzen" data-i18n="cv.cta">加微信，约一次</button>
         </article>
         <article class="svc">
           <h3 data-i18n="co.title">影像与开发</h3>
@@ -253,24 +254,38 @@
             <li><b data-i18n="co.k3">共建</b><span data-i18n="co.v3">一起做开源，一起推</span></li>
           </ul>
           <div class="svc-meta"><span class="price" data-i18n="co.price">按项目报价</span></div>
-          <button class="btn btn-ghost copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="co.cta">私信谈合作</button>
+          <button class="btn btn-ghost copy-wx" data-wx="pixelxzen" data-i18n="co.cta">私信谈合作</button>
         </article>
       </div>
     </div>
   </section>
 
   <!-- 第四阶 · 相逢 -->
-  <section id="talk" class="sec wrap">
+  <section id="talk" class="sec on-violet">
+   <div class="wrap">
     <div class="step-mark" data-step="4">
       <span class="stairs" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       <span data-i18n="talk.mark">第四阶 · 相逢</span><small>LET'S TALK</small>
     </div>
     <h2 data-i18n="talk.h2">台阶已铺好，上来聊聊</h2>
+      <aside class="profile-bar">
+        <img class="avatar" src="assets/me.jpg" alt="紫苏子ACG">
+        <div class="p-body">
+          <div class="p-name" data-i18n="p.name">紫苏子ACG</div>
+          <div class="p-role" data-i18n="p.role">独立动画导演 · 独立全栈开发</div>
+          <ul class="p-list">
+            <li><b>185+</b><span data-i18n="p.l1">GitHub Star · 代表作 Phantom-Motion</span></li>
+            <li><b>27</b><span data-i18n="p.l2">个开源仓库</span></li>
+            <li><b>@</b><span data-i18n="p.l3">公众号 / GitHub：紫苏子ACG · pixelxzen</span></li>
+          </ul>
+        </div>
+      </aside>
+
     <div class="contact">
       <div class="card ct">
         <div class="ct-title" data-i18n="ct.wx">微信</div>
         <img class="qr" src="assets/wechat-qr.png" alt="紫苏子ACG 个人微信二维码">
-        <div class="ct-id"><span class="wx-id">REPLACE_WECHAT_ID</span> <button class="link-btn copy-wx" data-wx="REPLACE_WECHAT_ID" data-i18n="ct.copy">复制</button></div>
+        <div class="ct-id"><span class="wx-id">pixelxzen</span> <button class="link-btn copy-wx" data-wx="pixelxzen" data-i18n="ct.copy">复制</button></div>
         <p class="fine" data-i18n="ct.note">添加请注明来意</p>
       </div>
       <div class="card ct">
@@ -286,13 +301,14 @@
         <a href="https://github.com/pixelxzen?tab=repositories" target="_blank" rel="noopener"><span data-i18n="ct.repos">全部作品</span>27 repos</a>
       </div>
     </div>
+   </div>
   </section>
 
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <span class="seal small">紫<br>苏</span>
+    <img class="brand-mark brand-mark-sm" src="assets/avatar.png" alt="" width="34" height="34">
     <span class="foot-slogan">一格一阶，把想象铺成路<em>Frame by frame, step by step.</em></span>
     <span class="foot-copy">© 2026 紫苏子ACG</span>
   </div>

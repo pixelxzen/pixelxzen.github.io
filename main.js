@@ -3,6 +3,15 @@
 
 document.body.classList.add('js');
 
+/* 导航：首屏透明悬浮，滚动后变实色 */
+(() => {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('solid', window.scrollY > 60);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
 const EN = {
   'meta.title': 'ZisuziACG · Frame by frame, step by step',
   'brand': 'ZisuziACG',
@@ -160,6 +169,23 @@ document.querySelectorAll('.copy-wx').forEach(btn => {
     }
   });
 });
+
+/* 首屏背景视频：自动播放兜底、切到后台暂停省电 */
+(() => {
+  const v = document.querySelector('.hero-video');
+  if (!v) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const sync = () => {
+    if (reduce.matches) { v.pause(); v.style.display = 'none'; return; }
+    v.style.display = '';
+    if (!document.hidden) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+  };
+  sync();
+  reduce.addEventListener && reduce.addEventListener('change', sync);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) v.pause(); else sync();
+  });
+})();
 
 /* 占位符未替换时不裸露英文，保证线上页面体面 */
 (() => {

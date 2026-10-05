@@ -48,15 +48,38 @@ python3 -m http.server 8912
 
 ## 设计说明
 
-- **配色**取自线条头像：深靛紫 `#100C1E` 夜底 · 纸白 `#F4F1FB` · 主紫 `#8B6BFF` · 青 `#3AD9E8` · 朱砂印 `#C8453E`
-- **结构**沿用竖向台阶叙事：第一阶·来路 → 第二阶·所铸 → 第三阶·可托 → 第四阶·相逢
-- **节奏**整体夜紫，第三阶「可托」翻成亮色圆角纸块做视觉重音（暗-暗-**亮**-暗）
-- **Hero** 的台阶折线与星轨是内联 SVG，无外部图片依赖
-- **中英双语**切换，字典在 `main.js` 的 `EN` 对象里；`data-i18n` 走文本、`data-i18n-html` 走富文本（首屏主文案靠它控制断行）
-- **滚动入场**用 IntersectionObserver；`.js` 类保证 JS 失效时不白屏，并在 `prefers-reduced-motion` 下自动关闭
+视觉语言对齐 **Hermes Agent 官网**的排版美学（实测提炼，非印象）：
+
+| 手法 | 做法 |
+|------|------|
+| 纯色硬切分区 | hero 视频 → 纯紫 `#5B3FE8` → 纯白 `#FCFBF8` → 墨黑 `#0B0912` → 纯紫，区块之间无渐变过渡 |
+| 衬线超大字 | 标题走 `Songti SC / 思源宋体` 900 字重，hero 字号 `clamp(50px, 8.4vw, 122px)` |
+| 全站直角 | 所有卡片/按钮/二维码圆角归零，删掉全部投影 |
+| 1px 细线 | 用 `border` 划分区域与卡片，替代原先的「卡片 + 阴影」 |
+| 极端字号对比 | 122px 标题 ↔ 10px mono 小标，中间用宽字距大写字母标记 |
+| 分类色克制 | 主题色只在区块间切换；青 `#3AD9E8` / 朱砂 `#C8453E` 仅作点缀 |
+
+- **Hero**：沉浸式背景视频（无声循环、`autoplay muted loop playsinline`），
+  遮罩只在左侧文字区做局部暗晕，右侧留亮让画面透出来；
+  底部渐入纯紫与下一区块衔接。首屏不含任何卡片，视频独享满屏。
+- **Logo**：导航与页脚用线条头像 `assets/avatar.png` 圆形呈现；
+  个人简介条（落在「相逢」区）用 3D 渲染形象 `assets/me.jpg`。
+- **台阶线条**：hero 底部的内联 SVG 折线 + 星轨，纯白细线压在视频上。
+- **中英双语**：字典在 `main.js` 的 `EN` 对象；`data-i18n` 走文本、`data-i18n-html` 走富文本（首屏主文案靠它控制断行）。
+- **动效**：滚动入场用 IntersectionObserver；`.js` 类保证 JS 失效时不白屏，
+  `prefers-reduced-motion` 下自动关闭动效并停播背景视频。
 
 ## 维护备忘
 
 - 作品数据（Star 数）写在 `index.html` 的「壁上陈列」列表里，需手动更新
 - 新增作品：复制一个 `<li>` 到 `<ul class="shelf">`，星数为 0 时给 `.s-star` 加 `zero` 类
-- 头像：`assets/avatar.png`（300×300，同时用作 favicon 与 og:image）
+- 头像：`assets/avatar.png`（线条形象，导航/页脚 logo + favicon + og:image）
+  与 `assets/me.jpg`（3D 形象，简介条）
+- 换背景视频：重压一版替换 `assets/hero-loop.mp4`，并从视频抽一帧更新 `assets/hero-poster.jpg`
+  ```bash
+  ffmpeg -i 源视频.mp4 -an -vf fps=30 -c:v libx264 -preset slow -crf 30 -g 60 \
+    -pix_fmt yuv420p -profile:v high -movflags +faststart assets/hero-loop.mp4
+  ffmpeg -ss 1.5 -i assets/hero-loop.mp4 -frames:v 1 -q:v 6 assets/hero-poster.jpg
+  ```
+- 区块配色在 `style.css` 的 `.on-violet` / `.on-white` / `.on-ink` 三个主题类里改，
+  HTML 里对应 `<section class="sec on-*">`
