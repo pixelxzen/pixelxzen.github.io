@@ -92,7 +92,6 @@ const EN = {
   'talk.mark': 'STEP FOUR · LET\u2019S TALK',
   'talk.h2': 'The steps are laid. Come up and say hi.',
   'ct.wx': 'WeChat',
-  'ct.qrph': 'QR code pending',
   'ct.copy': 'copy',
   'ct.note': 'Please mention what it\u2019s about',
   'ct.mp': 'WeChat MP',
@@ -166,7 +165,10 @@ document.querySelectorAll('.copy-wx').forEach(btn => {
 (() => {
   const unset = v => !v || v.startsWith('REPLACE_');
   document.querySelectorAll('.wx-id').forEach(el => {
-    if (unset(el.textContent.trim())) el.textContent = '待填写';
+    if (unset(el.textContent.trim())) {
+      const row = el.closest('.ct-id');
+      if (row) row.style.display = 'none';
+    }
   });
   document.querySelectorAll('.link-btn.copy-wx').forEach(b => {
     if (unset(b.dataset.wx)) b.style.display = 'none';

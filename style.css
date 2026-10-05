@@ -241,9 +241,8 @@ blockquote { margin-top: 28px; padding: 20px 24px; border-left: 4px solid var(--
 .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 96px; }
 .ct { padding: 28px 26px; text-align: center; }
 .ct-title { font: 800 20px var(--serif); margin-bottom: 16px; }
-.qr { width: 168px; height: 168px; margin: 0 auto 14px; border-radius: 12px; }
-.qr-empty { display: flex; align-items: center; justify-content: center; border: 2px dashed var(--line-2);
-            color: var(--muted); font-size: 14px; }
+.qr { display: block; width: 178px; height: 178px; margin: 0 auto 16px; border-radius: 12px;
+      background: #fff; object-fit: contain; box-shadow: 0 0 0 1px var(--line-2); }
 .ct-id { font-weight: 700; font-size: 16.5px; word-break: break-all; }
 .ct-links { text-align: left; display: flex; flex-direction: column; gap: 10px; }
 .ct-links .ct-title { text-align: center; }
